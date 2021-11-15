@@ -117,14 +117,98 @@ header .navlinks ul {
     background-color: #171338;
     color: #fff
 }
+#checkbox{
+    display: none;
+}
 
 @media screen and (max-width: 64rem) {
     .navlinks{
         display: none;
+        /* display: block; */
+        /* background-color: #fff;
+        position: absolute;
+        top: 6rem;
+        left: 0;
+        right: 0;
+        padding: .5rem;
+        padding-bottom: 3rem;
+        padding-right: 1rem; */
     }
+    .right-nav{
+        margin-top: 2rem;
+    }
+    .dropbtn{
+        display: flex;
+        justify-content: space-between;
+    }
+    #left-nav,
+    .dropdown,
+    .dropdown-content{
+        display: block;
+        position: relative;
+        top: 0;
+        border: none;
+        box-shadow: none;
+        padding-right: 0;
+        margin-right: 0;
+    }
+
+    .dropdown:hover > .dropdown-content{
+        display: none;
+    }
+
+    .hamburger{
+        position: relative;
+        display: inline-block;
+    }
+    .hamburger,
+    .hamburger::before,
+    .hamburger::after{
+    background-color: #000;
+    width: 2rem;
+    height: .2rem;
+    transition:  all .5s;
+
+    }
+    .hamburger::before,
+    .hamburger::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    }
+    .hamburger::before{
+    top: .6rem;
+    transition:  all .5s;
+    }
+    .hamburger::after{
+    top: -.6rem;
+    transition:  all .5s;
 }
 
+    #checkbox:checked + label > .hamburger {
+    background-color: transparent;
+    }
+    #checkbox:checked + label > .hamburger::before {
+    top: 0;
+    transform: rotate(-45deg);
+    }
+    #checkbox:checked + label > .hamburger::after {
+    top:0;
+    transform: rotate(45deg);
+    }
 
+    #checkbox:checked ~ .navlinks{
+        display: block;
+        background-color: #fff;
+        position: absolute;
+        top: 6rem;
+        left: 0;
+        right: 0;
+        padding: .5rem;
+        padding-bottom: 3rem;
+        padding-right: 1rem;
+    }
+}
 .hero-section{
     padding-right: 5rem;
     padding-left: 5.6rem;
@@ -155,7 +239,7 @@ h2{
     line-height: 1.6rem;
 }
 .hero-img > img{
-    width: 25rem;
+    width: 100%;
     padding-left: 3.1rem; 
 } 
 
@@ -180,25 +264,33 @@ h2{
 
 .home-section{
     display: flex;
+    justify-content: space-between;
     font-family: 'Epilogue', sans-serif;
+    padding: 10rem 3.5rem;
     padding-bottom: 5rem;
 }
 
 .home-text{
-    padding-top: 9rem;
-    padding-left: 5rem;
-}
-.home-img > img{
-    width: 30rem;
-    padding-top: 9rem;
-    padding-right: 5rem;
-    padding-left: 15rem;
+    width: 40%;
+
 }
 
-@media screen and (max-width: 48rem) {
+.home-section > img{
+    width: 40%;
+    
+}
+
+@media screen and (max-width: 56.25rem) {
     .home-section{
         display: block;
         padding-left: 4rem;
+    }
+    .home-text,
+    .home-section > img {
+        width: 100%;
+    }
+    .home-text{
+        margin-bottom: 2rem;
     }
 }
 
@@ -215,7 +307,7 @@ span{
 }
 
 .article-text{
-    padding-top: 9rem;
+    padding-top: 7rem;
 }
 
 #article-text1{
@@ -365,9 +457,18 @@ span{
     padding: 10rem 10rem 10rem 7rem;
     
 }
+@media screen and (max-width: 81.25rem) {
+    .clients-company {
+        grid-column-gap: 1.5rem;
+        padding: 7rem;
 
+    }
+}
+.clients-company img{
+    width: 100%
+}
 .clients-company > a {
-    width: fit-content;
+    width: 100%;
 }
 
 .application{
